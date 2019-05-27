@@ -15,7 +15,7 @@ public class Stegano {
             BufferedImage baseImage = ImageIO.read(baseImageFile);
 
 
-            File secreteImageFile = new File("images/image3.png");
+            File secreteImageFile = new File("images/image4.jpg");
             BufferedImage secretImage = ImageIO.read(secreteImageFile);
 
             secretImage = resizeImage(secretImage, baseImage.getWidth(), baseImage.getHeight());
@@ -86,8 +86,8 @@ public class Stegano {
     public static String merge(String base, String secret){
 
         String mergedValue = "";
-        String [] splitBase = base.split("(?<=\\G.{6})");
-        String [] splitSecret = secret.split("(?<=\\G.{2})");
+        String [] splitBase = base.split("(?<=\\G.{4})");
+        String [] splitSecret = secret.split("(?<=\\G.{4})");
 
         mergedValue = splitBase[0]+splitSecret[0];
 
@@ -98,10 +98,10 @@ public class Stegano {
     public static String extract(String base){
 
         String exctractedValue;
-        String [] splitBase = base.split("(?<=\\G.{6})");
+        String [] splitBase = base.split("(?<=\\G.{4})");
 
 
-        exctractedValue = splitBase[1]+"000000";
+        exctractedValue = splitBase[1]+"0000";
 
         return exctractedValue;
     }
